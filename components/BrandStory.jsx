@@ -17,13 +17,15 @@ export default function BrandStory() {
       { threshold: 0.2 }
     )
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+    const currentSection = sectionRef.current
+
+    if (currentSection) {
+      observer.observe(currentSection)
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
+      if (currentSection) {
+        observer.unobserve(currentSection)
       }
     }
   }, [])
@@ -79,7 +81,7 @@ export default function BrandStory() {
               </p>
               
               <p className="font-serif italic text-brozzo-navy pt-4 border-t border-brozzo-tan/30">
-                "Where heritage meets modern sensibility."
+                &ldquo;Where heritage meets modern sensibility.&rdquo;
               </p>
             </div>
 
