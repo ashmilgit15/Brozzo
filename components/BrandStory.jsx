@@ -33,13 +33,13 @@ export default function BrandStory() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-brozzo-white"
+      className="py-12 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-brozzo-off-white"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
           {/* Image */}
           <div
-            className={`relative aspect-[4/5] rounded-sm overflow-hidden shadow-lg transition-all duration-700 ${
+            className={`relative aspect-[4/5] rounded-lg sm:rounded-sm overflow-hidden shadow-xl transition-all duration-700 ${
               isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
             }`}
           >
@@ -59,11 +59,11 @@ export default function BrandStory() {
               isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
             }`}
           >
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-brozzo-charcoal mb-6 tracking-tight leading-tight">
+            <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl font-bold text-brozzo-charcoal mb-4 sm:mb-6 tracking-tight leading-tight">
               Crafted in Koppam
             </h2>
             
-            <div className="space-y-4 text-base sm:text-lg text-brozzo-charcoal/80 leading-relaxed">
+            <div className="space-y-3 sm:space-y-4 text-sm sm:text-lg text-brozzo-charcoal/80 leading-relaxed">
               <p>
                 Founded in the heart of Kerala, <strong className="font-medium text-brozzo-charcoal">Brozzo</strong> represents 
                 a commitment to timeless quality and authentic craftsmanship.

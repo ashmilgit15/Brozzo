@@ -69,5 +69,23 @@
       transition: none;
     }
   }
+
+  /* Line clamp utilities */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Touch feedback for mobile */
+  @media (hover: none) {
+    .group:active .group-active\:opacity-100 {
+      opacity: 1;
+    }
+    .group:active .group-active\:scale-110 {
+      transform: scale(1.1);
+    }
+  }
 }
 

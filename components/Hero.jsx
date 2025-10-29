@@ -40,7 +40,7 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative h-screen min-h-[600px] overflow-hidden bg-brozzo-charcoal">
+    <section className="relative h-screen min-h-[500px] sm:min-h-[600px] overflow-hidden bg-brozzo-charcoal">
       {/* Parallax container */}
       <div ref={parallaxRef} className="absolute inset-0 will-change-transform">
         <Image
@@ -50,29 +50,30 @@ export default function Hero() {
           priority
           quality={90}
           sizes="100vw"
-          className="object-cover object-center"
+          className="object-cover object-center sm:object-center"
+          style={{ objectPosition: 'center 40%' }}
           unoptimized
         />
         {/* Gradient overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-brozzo-charcoal/30 via-brozzo-charcoal/20 to-brozzo-charcoal/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-brozzo-charcoal/40 via-brozzo-charcoal/30 to-brozzo-charcoal/70" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center justify-center px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-4xl mx-auto animate-on-scroll is-visible">
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 tracking-tight leading-tight">
+      <div className="relative z-10 h-full flex items-end sm:items-center justify-center px-4 sm:px-6 lg:px-8 pb-16 sm:pb-0">
+        <div className="text-center max-w-4xl mx-auto animate-on-scroll is-visible w-full">
+          <h1 className="font-serif text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-3 sm:mb-6 tracking-tight leading-tight">
             BROZZO
           </h1>
-          <p className="font-serif text-xl sm:text-2xl md:text-3xl text-brozzo-tan mb-3 sm:mb-4 tracking-wide">
+          <p className="font-serif text-2xl sm:text-2xl md:text-3xl text-brozzo-tan mb-2 sm:mb-4 tracking-wide">
             Classic, Reimagined
           </p>
-          <p className="text-base sm:text-lg md:text-xl text-white/90 mb-8 sm:mb-10 font-light tracking-wide">
+          <p className="text-sm sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-10 font-light tracking-wide max-w-md mx-auto">
             Every step shaped by craft.
           </p>
           <button
             onClick={scrollToGallery}
             aria-label="Scroll to collection gallery"
-            className="inline-block px-6 sm:px-8 py-3 sm:py-4 bg-white text-brozzo-charcoal rounded-md text-sm sm:text-base font-medium shadow-lg hover:bg-brozzo-tan hover:scale-105 transition-all duration-300 focus-visible-ring"
+            className="inline-block w-full sm:w-auto px-8 sm:px-8 py-4 sm:py-4 bg-white text-brozzo-charcoal rounded-full sm:rounded-md text-base sm:text-base font-semibold shadow-lg hover:bg-brozzo-tan hover:scale-105 transition-all duration-300 focus-visible-ring"
           >
             Explore the Collection
           </button>

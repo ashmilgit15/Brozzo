@@ -92,14 +92,14 @@ function ProductCard({ product }) {
       tabIndex={0}
       aria-label={`${product.name}. Click or press Enter to view alternate image.`}
     >
-      <div className="relative aspect-[3/4] overflow-hidden bg-brozzo-white rounded-sm shadow-sm hover:shadow-xl transition-shadow duration-300">
+      <div className="relative aspect-[3/4] overflow-hidden bg-brozzo-white rounded-none sm:rounded-sm shadow-none sm:shadow-sm hover:shadow-xl transition-shadow duration-300">
         {product.images.map((img, idx) => (
           <Image
             key={idx}
             src={img}
             alt={`${product.name} - view ${idx + 1}`}
             fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
             className={`object-cover transition-opacity duration-500 ${
               idx === currentImageIndex ? 'opacity-100' : 'opacity-0'
             }`}
@@ -108,23 +108,23 @@ function ProductCard({ product }) {
           />
         ))}
         
-        {/* Hover indicator */}
-        <div className="absolute inset-0 bg-gradient-to-t from-brozzo-charcoal/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+        {/* Hover/Active indicator */}
+        <div className="absolute inset-0 bg-gradient-to-t from-brozzo-charcoal/40 to-transparent opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300 pointer-events-none" />
         
-        {/* Image counter */}
-        <div className="absolute top-3 right-3 bg-white/90 text-brozzo-charcoal text-xs px-2 py-1 rounded-full font-medium">
+        {/* Image counter - hidden on mobile for cleaner look */}
+        <div className="hidden sm:block absolute top-2 right-2 bg-white/90 text-brozzo-charcoal text-xs px-2 py-1 rounded-full font-medium">
           {currentImageIndex + 1}/{product.images.length}
         </div>
       </div>
 
-      <div className="mt-4 px-1">
-        <h3 className="text-lg sm:text-xl font-medium text-brozzo-charcoal mb-1 tracking-tight">
+      <div className="mt-2 sm:mt-4 px-1">
+        <h3 className="text-sm sm:text-lg font-semibold text-brozzo-charcoal mb-0.5 sm:mb-1 tracking-tight leading-tight">
           {product.name}
         </h3>
-        <p className="text-sm sm:text-base text-brozzo-charcoal/70 mb-3 leading-relaxed">
+        <p className="text-xs sm:text-base text-brozzo-charcoal/60 mb-2 sm:mb-3 leading-snug line-clamp-2">
           {product.description}
         </p>
-        <span className="inline-block text-sm font-medium text-brozzo-navy hover:text-brozzo-tan transition-colors duration-200 border-b border-brozzo-navy/20 group-hover:border-brozzo-tan">
+        <span className="hidden sm:inline-block text-sm font-medium text-brozzo-navy hover:text-brozzo-tan transition-colors duration-200 border-b border-brozzo-navy/20 group-hover:border-brozzo-tan">
           View Details →
         </span>
       </div>
@@ -134,27 +134,27 @@ function ProductCard({ product }) {
 
 export default function GalleryGrid() {
   return (
-    <section id="gallery" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-brozzo-off-white">
+    <section id="gallery" className="py-12 sm:py-20 lg:py-24 px-0 sm:px-6 lg:px-8 bg-brozzo-off-white">
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
-        <div className="text-center mb-12 sm:mb-16 animate-on-scroll">
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-brozzo-charcoal mb-4 tracking-tight">
+        <div className="text-center mb-8 sm:mb-16 animate-on-scroll px-4 sm:px-0">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-brozzo-charcoal mb-3 sm:mb-4 tracking-tight">
             The Collection
           </h2>
-          <p className="text-base sm:text-lg text-brozzo-charcoal/70 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-lg text-brozzo-charcoal/70 max-w-2xl mx-auto px-4">
             Carefully curated styles that blend tradition with modern sensibility.
           </p>
         </div>
 
         {/* Product grid - responsive: 1 col mobile, 2 cols tablet, 3 cols desktop */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-6 lg:gap-8 px-2 sm:px-0">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
 
         {/* Call-to-action hint */}
-        <p className="text-center mt-8 text-sm text-brozzo-charcoal/60 italic">
+        <p className="text-center mt-6 sm:mt-8 text-xs sm:text-sm text-brozzo-charcoal/60 italic px-4">
           Tap or hover to view alternate angles
         </p>
       </div>

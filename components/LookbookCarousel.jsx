@@ -63,12 +63,12 @@ export default function LookbookCarousel() {
   }
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-brozzo-off-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-12">
-        <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-brozzo-charcoal mb-4 tracking-tight text-center">
+    <section className="py-12 sm:py-20 lg:py-24 bg-brozzo-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-12">
+        <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-brozzo-charcoal mb-3 sm:mb-4 tracking-tight text-center">
           Lifestyle Lookbook
         </h2>
-        <p className="text-base sm:text-lg text-brozzo-charcoal/70 text-center max-w-2xl mx-auto">
+        <p className="text-sm sm:text-lg text-brozzo-charcoal/70 text-center max-w-2xl mx-auto">
           See how our pieces fit into everyday moments.
         </p>
       </div>
@@ -121,7 +121,7 @@ export default function LookbookCarousel() {
         <div
           ref={scrollRef}
           onScroll={checkScroll}
-          className="flex gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide px-4 sm:px-6 lg:px-8"
+          className="flex gap-3 sm:gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide px-4 sm:px-6 lg:px-8 pb-2"
           style={{
             scrollbarWidth: 'none',
             msOverflowStyle: 'none',
@@ -130,22 +130,22 @@ export default function LookbookCarousel() {
           {lookbookImages.map((image, index) => (
             <div
               key={image.id}
-              className="flex-shrink-0 snap-center first:ml-0 last:mr-0"
-              style={{ width: 'min(85vw, 400px)' }}
+              className="flex-shrink-0 snap-center snap-always first:ml-0 last:mr-0"
+              style={{ width: 'min(70vw, 380px)' }}
             >
-              <div className="relative aspect-[3/4] rounded-sm overflow-hidden shadow-lg group">
+              <div className="relative aspect-[3/4] rounded-lg overflow-hidden shadow-xl group">
                 <Image
                   src={image.src}
                   alt={image.caption}
                   fill
-                  sizes="(max-width: 640px) 85vw, 400px"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 70vw, 380px"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110 group-active:scale-110"
                   unoptimized
                   loading={index < 2 ? 'eager' : 'lazy'}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-brozzo-charcoal/70 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4">
-                  <p className="text-white text-sm sm:text-base font-medium tracking-wide">
+                <div className="absolute inset-0 bg-gradient-to-t from-brozzo-charcoal/80 via-brozzo-charcoal/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
+                  <p className="text-white text-base sm:text-lg font-semibold tracking-wide drop-shadow-lg">
                     {image.caption}
                   </p>
                 </div>
@@ -155,8 +155,8 @@ export default function LookbookCarousel() {
         </div>
 
         {/* Mobile scroll hint */}
-        <p className="text-center mt-6 text-sm text-brozzo-charcoal/60 md:hidden">
-          Swipe to explore →
+        <p className="text-center mt-4 sm:mt-6 text-xs sm:text-sm text-brozzo-charcoal/60 md:hidden">
+          ← Swipe to explore →
         </p>
       </div>
 
