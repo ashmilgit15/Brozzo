@@ -1,0 +1,12 @@
+# robots.txt for Brozzo showcase site
+
+User-agent: *
+Allow: /
+
+# Sitemap location (update with your actual domain)
+# Sitemap: https://brozzo.com/sitemap.xml
+
+# Disallow admin or private paths (if any in future)
+# Disallow: /admin/
+# Disallow: /api/
+
